@@ -2,11 +2,9 @@ let score = 0;
 let highscore = 0;
 let wordBank = [];
 let currPoem = []
-
 const scoreDisplay = document.getElementById('score-display');
 const highscoreDisplay = document.getElementById('highscore-display');
 const currPoemDisplay = document.getElementById('poem-display');
-
 fetch('words.json')
     .then(response => response.json())
     .then(data => {
@@ -14,13 +12,11 @@ fetch('words.json')
         addWord();
     })
     .catch(error => console.error('Error loading JSON:', error));
-
 function getRandomWord() {
     if (wordBank.length === 0) return '';
     const randomIndex = Math.floor(Math.random() * wordBank.length);
     return wordBank[randomIndex];
 }
-
 function addWord(){
     const newWord = getRandomWord()
     if(newWord){
@@ -32,24 +28,13 @@ function addWord(){
     if (score > highscore){
         highscore = score;
     }
-
     scoreDisplay.textContent = score;
     highscoreDisplay.textContent = highscore;
 }
-
 function clearPoem(){
-    if (Math.random() < 0.5) {
-        let blockNonsense = true;
-    }
-    
-    if (blockNonsense) {
-        window.alert("Are you sure?");
-    }
-
     currPoem = [];
     score = 0;
     currPoemDisplay.textContent = '';
     scoreDisplay.textContent = score;
-
     addWord();
 }
