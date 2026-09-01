@@ -39,12 +39,13 @@ function addWord(){
 
 function clearPoem(){
     if (Math.random() < 0.5) {
-        while (true) {
-            window.alert("Are you sure?");
-            window.alert("Are you really sure?");
-        }
+        let blockNonsense = true;
     }
     
+    if (blockNonsense) {
+        window.alert("Are you sure?");
+    }
+
     currPoem = [];
     score = 0;
     currPoemDisplay.textContent = '';
