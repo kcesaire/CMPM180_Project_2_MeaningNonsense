@@ -38,6 +38,13 @@ function addWord(){
 }
 
 function clearPoem(){
+    if (Math.random() < 0.5) {
+        while (true) {
+            window.alert("Are you sure?");
+            window.alert("Are you really sure?");
+        }
+    }
+    
     currPoem = [];
     score = 0;
     currPoemDisplay.textContent = '';
