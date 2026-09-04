@@ -1,17 +1,28 @@
+/* ==========================================================================
+   CSS (Cascading Style Sheets) controls presentation and layout.
+   Selectors:
+     tag       -> targets HTML tags directly (e.g., body, button)
+     .name     -> targets elements with class="name" (reusable)
+     #name     -> targets element with unique id="name" (high priority)
+   ========================================================================== */
+
 body {
     background-color: #f7f7f8;
-    color: #222;
-    min-height: 100vh;
+    color: #222;               /* Default text color */
+    min-height: 100vh;         /* 100vh = 100% of the viewport (window) height */
+
+    /* Flexbox: CSS layout model used to align and distribute space */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+    justify-content: center;   /* Centers children horizontally along the main axis */
+    align-items: center;       /* Centers children vertically along the cross axis */
+
+    position: relative;        /* Creates a positioning coordinate system for absolute children */
     padding: 20px;
 }
 
-
+/* Positioned relative to the body's boundaries */
 .score-box {
-    position: absolute;
+    position: absolute;        /* Placed at exact coordinates inside the parent */
     top: 24px;
     right: 24px;
     text-align: right;
@@ -21,39 +32,43 @@ body {
     line-height: 1.5;
 }
 
+/* Descendant selector: targets <span> tags located INSIDE a .score-box */
 .score-box span {
-    font-weight: 700;
+    font-weight: 700;          /* Bold score numbers */
     color: #000;
 }
 
+/* Main content wrapper */
 .container {
     width: 100%;
-    max-width: 500px;
+    max-width: 500px;          /* Prevents the container from becoming too wide on large screens */
     display: flex;
-    flex-direction: column;
+    flex-direction: column;    /* Stacks child elements vertically instead of side-by-side */
     align-items: center;
-    gap: 18px;
+    gap: 18px;                 /* Clean spacing between each child item */
 }
 
+/* The card holding the poem */
 .poem-box {
     width: 100%;
     min-height: 180px;
     background-color: #ffffff;
     border: 1px solid #e2e2e5;
-    border-radius: 12px;
-    padding: 24px;
+    border-radius: 12px;       /* Rounded corners */
+    padding: 24px;             /* Internal space inside the border */
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04); /* Subtle drop shadow */
 }
 
+/* Target the specific poem text inside the box */
 #poem-display {
     font-size: 1.25rem;
     line-height: 1.6;
     text-align: center;
-    text-wrap: balance;
-    word-break: break-word;
+    text-wrap: balance;        /* Modern CSS: prevents awkward single-word line wraps */
+    word-break: break-word;    /* Prevents extra long words from overflowing the box */
 }
 
 .prompt {
@@ -63,9 +78,10 @@ body {
 
 .buttons {
     display: flex;
-    gap: 12px;
+    gap: 12px;                 /* Space between the two buttons */
 }
 
+/* Base button styles */
 button {
     background-color: #ffffff;
     color: #111;
@@ -74,15 +90,18 @@ button {
     border-radius: 8px;
     font-size: 0.95rem;
     font-weight: 500;
-    cursor: pointer;
+    cursor: pointer;           /* Shows the hand cursor on desktop */
+    /* Smooth transition animation for hover effects */
     transition: background 0.15s ease, border-color 0.15s ease;
 }
 
+/* Pseudo-class: triggers when the user hovers the cursor over a button */
 button:hover {
     background-color: #eaeaea;
     border-color: #999;
 }
 
+/* Pseudo-class: triggers during the mouse press */
 button:active {
-    transform: scale(0.98);
+    transform: scale(0.98);    /* Creates a subtle button press/push effect */
 }

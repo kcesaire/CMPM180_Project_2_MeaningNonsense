@@ -1,30 +1,51 @@
 <!DOCTYPE html>
-<html lang = "en">
+<!-- Specifies HTML5 standard to the browser -->
+<html lang="en">
     <head>
-        <meta charset = "UTF-8" />
-        <title> Project 2</title>
+        <!-- Character encoding: standard UTF-8 handles all text characters -->
+        <meta charset="UTF-8" />
+        <title>Project 2</title>
+
+        <!-- Link to external stylesheet: Keeps design separate from structure -->
         <link rel="Stylesheet" href="index.css">
-        
     </head>
+    
+    <!-- 
+      Note: Inline styles (style="...") override external CSS rules.
+      This inline background overrides the body color defined in index.css.
+    -->
     <body style="background-color: rgb(175, 175, 175);">
+
+        <!-- Scoreboard area: Uses 'class' for CSS styling and 'id' for JS access -->
         <div class="score-box">
+            <!-- <span> is an inline container used here so JS can target the number directly -->
             <div>Score: <span id="score-display">0</span></div>
             <div>High Score: <span id="highscore-display">0</span></div>
         </div>
 
+        <!-- Semantic tag <main> indicates the dominant content of the <body> -->
         <main class="container">
             <div class="poem-box">
+                <!-- Empty paragraph: JavaScript will populate this using textContent -->
                 <p id="poem-display"></p>
             </div>
         
             <p class="prompt">Is this poem...</p>
+
             <div class="buttons">
+                <!-- 
+                  Event Handlers: 'onclick' triggers the corresponding JS functions 
+                  when a user clicks the button.
+                -->
                 <button onclick="addWord()">Meaningful</button>
                 <button onclick="clearPoem()">Nonsense</button>
             </div>
         </main>
-        <script src = "project.js"></script>
-    </body>
 
-    
+        <!-- 
+          Script tag is placed at the end of <body> so all HTML tags are parsed 
+          and loaded into memory before the JavaScript tries to select them with getElementById.
+        -->
+        <script src="project.js"></script>
+    </body>
 </html>
